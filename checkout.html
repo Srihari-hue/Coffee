@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoffeeGo - Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="checkout-container">
+    <h2>Checkout</h2>
+
+    <form class="checkout-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="e.g. Raj Kumar" required>
+
+      <label for="address">Delivery Address</label>
+      <textarea id="address" placeholder="Street, City, Pincode" required></textarea>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="e.g. 9876543210" required>
+
+      <label for="payment">Payment Method</label>
+      <select id="payment">
+        <option>Cash on Delivery</option>
+        <option>UPI</option>
+        <option>Credit/Debit Card</option>
+      </select>
+
+      <button type="submit" class="place-order-btn" onclick="location.href='confirmation.html'">Place Order</button>
+    </form>
+  </div>
+</body>
+</html>

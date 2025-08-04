@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoffeeGo - Coffee Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Basic styles just for clarity */
+    .details-container {
+      padding: 20px;
+      font-family: sans-serif;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .coffee-image {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .coffee-name {
+      font-size: 24px;
+      margin-top: 15px;
+    }
+
+    .coffee-desc {
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .options-group {
+      margin: 20px 0;
+    }
+
+    .options .size-option {
+      padding: 8px 16px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .size-option.active {
+      background-color: #333;
+      color: white;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 20px;
+      border: none;
+      background-color: #ddd;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .qty-number {
+      margin: 0 12px;
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .add-cart-btn {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      background-color: #6f4e37;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="details-container">
+    <img class="coffee-image" src="10602107.jpg" alt="Coffee" />
+
+    <h2 class="coffee-name">Cappuccino</h2>
+    <p class="coffee-desc">Rich espresso blended with steamed milk and a soft layer of foam.</p>
+
+    <div class="options-group">
+      <h4>Select Size</h4>
+      <div class="options">
+        <button class="size-option active">Small</button>
+        <button class="size-option">Medium</button>
+        <button class="size-option">Large</button>
+      </div>
+    </div>
+
+    <div class="options-group">
+      <h4>Quantity</h4>
+      <div class="quantity-selector">
+        <button class="qty-btn" onclick="changeQty(-1)">-</button>
+        <span class="qty-number" id="qty">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+    
+
+    <button class="add-cart-btn" onclick="location.href='cartcappuccino.html'">Add to Cart - ₹<span id="price">129</span></button>
+  </div>
+
+  <script>
+    let qty = 1;
+    const basePrice = 129;
+
+    function changeQty(amount) {
+      qty += amount;
+      if (qty < 1) qty = 1;
+      document.getElementById("qty").innerText = qty;
+      document.getElementById("price").innerText = basePrice * qty;
+    }
+
+    // Optional: make size selection interactive
+    const sizeButtons = document.querySelectorAll(".size-option");
+    sizeButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        sizeButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
